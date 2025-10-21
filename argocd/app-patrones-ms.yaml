@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patrones-ms
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/evoluciona2023/patrones-ms-infra.git
+    targetRevision: main
+    path: charts/patrones-ms
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

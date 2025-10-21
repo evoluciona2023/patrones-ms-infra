@@ -1,0 +1,6 @@
+apiVersion: v2
+name: patrones-ms
+version: 0.1.0
+appVersion: "0.1.0"
+description: Microservicio patrones Java
+type: application
